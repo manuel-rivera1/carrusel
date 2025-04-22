@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Calm - Sección de Producto</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+            /* Añadido padding al body para espaciar del borde */
+            display: flex;
+            justify-content: center;
+            /* Centrar la sección en la página */
+            align-items: flex-start;
+            background-color: #f7f7f7;
+        }
+
+        .product-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            /* Usamos flex para alinear imagen e información */
+            max-width: 800px;
+            /* Ancho máximo para la sección */
+            padding: 20px;
+        }
+
+        .product-image {
+            max-width: 400px;
+            /* Ancho máximo para la imagen */
+            height: auto;
+            margin-right: 20px;
+            /* Espacio entre la imagen y la información */
+            border-radius: 8px;
+            /* Opcional: bordes redondeados para la imagen */
+        }
+
+        .product-details {
+            flex-grow: 1;
+            /* Permite que la información ocupe el espacio restante */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-subtitle {
+            color: #757575;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .color-option img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .color-option.selected {
+            border: 2px solid black;
+        }
+
+        .size-selection {
+            margin-bottom: 20px;
+        }
+
+        .size-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .size-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .size-button {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .size-button.selected {
+            border: 1px solid black;
+            font-weight: bold;
+        }
+
+        .add-to-cart-button {
+            background-color: black;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .shipping-info {
+            font-size: 0.8em;
+            color: #757575;
+        }
+
+        .shipping-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product-container">
+        <img src="imagenes/carro1.webp" alt="Nike Calm Slide" class="product-image">
+        <div class="product-details">
+            <h2 class="product-title">Nike Calm</h2>
+            <p class="product-subtitle">Chanclas Nike</p>
+            <p class="product-price">$ 299.950</p>
+
+            <div class="color-options">
+                <div class="color-option selected"><img src="imagenes/carro1.webp" alt="Negro"></div>
+                <div class="color-option"><img src="imagenes/carro2.webp" alt="Blanco"></div>
+                <div class="color-option"><img src="imagenes/carro3.webp" alt="Gris">
+                </div>
+                <div class="color-option"><img src="imagenes/carro4.webp" alt="Rosa">
+                </div>
+            </div>
+
+            <div class="size-selection">
+                <div class="size-label">
+                    <span>Selecciona la Talla</span>
+
+                </div>
+                <div class="size-buttons">
+                    <button class="size-button">6</button>
+                    <button class="size-button">7</button>
+                    <button class="size-button">8</button>
+                    <button class="size-button">9</button>
+                    <button class="size-button">10</button>
+                    <button class="size-button">11</button>
+                </div>
+            </div>
+
+            <button class="add-to-cart-button">Comprar</button>
+
+            <div class="shipping-info">
+                Envío*<br>
+                zapatos negros <br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const colorOptions = document.querySelectorAll('.color-option');
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function () {
+                document.querySelector('.color-option.selected')?.classList.remove('selected');
+                this.classList.add('selected');
+            });
+        });
+
+        const sizeButtons = document.querySelectorAll('.size-button');
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                document.querySelector('.size-button.selected')?.classList.remove('selected');
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+
+</html>
